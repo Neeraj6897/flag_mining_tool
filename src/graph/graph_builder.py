@@ -5,6 +5,8 @@ from src.state.state_schema import State
 from src.nodes.basic_chatbot_node import BasicChatbotNode
 from src.nodes.chatbot_with_tool_node import ChatbotWithToolNode
 from src.tools.search_tool import get_tools, create_tool_node
+from src.tools.retriever_tool import build_retriever_tool
+from src.nodes.flag_mining_with_tool_node import FlagMiningWithToolNode
 
 class GraphBuilder:
     def __init__(self, model):
@@ -52,6 +54,16 @@ class GraphBuilder:
         self.graph_builder.add_edge(START, "chatbot")
         self.graph_builder.add_conditional_edges("chatbot", tools_condition)
         self.graph_builder.add_edge("tools", "chatbot")
+
+    def flag_mining_with_vectordb_tools_build_graph(self):
+        """Builds a chatbot with getting information from vector retriever first and then using LLM"""
+        tools = build_retriever_tool()
+        tool_node = FlagMiningWithToolNode.agent(tools)
+
+        llm = self.llm
+
+        self.graph_builder.add_node("tool", tool_node)
+
 
     def setup_graph(self, usecase: str):
         """Sets us the graph for the selected use case"""
