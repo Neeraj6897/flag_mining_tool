@@ -4,7 +4,7 @@ from configparser import ConfigParser
 os.environ["SSL_CERT_FILE"] = "./cacert.pem"
 
 class Config:
-    def __init__(self, config_file="./Agentic_AI/FlagMiningTool/flag_mining_tool/src/user_interface/ui_config.ini"):
+    def __init__(self, config_file="./src/user_interface/ui_config.ini"):
         self.config = ConfigParser()
         self.config.read(config_file)
 
