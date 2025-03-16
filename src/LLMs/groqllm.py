@@ -11,8 +11,7 @@ class GroqLLM:
         groq_api_key = self.user_controls_input['GROQ_API_KEY']
         selected_groq_model = self.user_controls_input['selected_groq_model']
         print(f"Selected Model is: {selected_groq_model}")
-        print(f"Groq api key: {groq_api_key}")
-        print(os.environ.get("SSL_CERT_FILE"))
+
         if groq_api_key =='' and os.environ['GROQ_API_KEY'] =='':
             st.error("Please enter the Groq API Key")
 
