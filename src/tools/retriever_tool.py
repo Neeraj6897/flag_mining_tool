@@ -1,3 +1,4 @@
+'''
 from langchain.tools.retriever import create_retriever_tool
 from langgraph.prebuilt import ToolNode
 from src.vectorstore.faiss_vectordb import build_vectorstore_retriever
@@ -11,4 +12,6 @@ urls = [
 retriever = build_vectorstore_retriever(urls)
 
 def build_retriever_tool(retriever):
-    return create_retriever_tool(retriever=retriever)
+    return create_retriever_tool(retriever=retriever)'
+    
+'''
