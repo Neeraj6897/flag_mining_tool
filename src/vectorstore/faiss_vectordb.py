@@ -45,6 +45,6 @@ def build_vectorstore_retriever(
     )
     
     # Return a retriever object
-    return vectorstore.as_retriever()'
+    return vectorstore.as_retriever()
 
 '''

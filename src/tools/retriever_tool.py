@@ -12,6 +12,8 @@ urls = [
 retriever = build_vectorstore_retriever(urls)
 
 def build_retriever_tool(retriever):
-    return create_retriever_tool(retriever=retriever)'
+    retriever_tool = create_retriever_tool(retriever=retriever)
+    tools = [retriever_tool]
+    return tools
     
 '''
